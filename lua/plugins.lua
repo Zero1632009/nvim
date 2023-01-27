@@ -2,7 +2,10 @@ return require('packer').startup(function(use)
 	-- Packer
 	use 'wbthomason/packer.nvim'
 	-- Themes
-	use 'folke/tokyonight.nvim'
+	use {
+		'luisiacc/gruvbox-baby',
+		branch = 'main',
+	}
 	-- NvimTree
 	use {
 	  'nvim-tree/nvim-tree.lua',
@@ -16,8 +19,6 @@ return require('packer').startup(function(use)
 	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
 	  requires = { {'nvim-lua/plenary.nvim'} }
 	}
-	-- Telescope File Browser
-	use { "nvim-telescope/telescope-file-browser.nvim" }
 	-- LuaLine
 	use {
 	  'nvim-lualine/lualine.nvim',
@@ -36,5 +37,23 @@ return require('packer').startup(function(use)
 	use {
 		"windwp/nvim-autopairs",
 	    config = function() require("nvim-autopairs").setup {} end
+	}
+	-- TreeSitter
+	use {
+		"nvim-treesitter/nvim-treesitter",
+		run = ':TSUpdate'
+	}
+	-- LSP
+	use {
+	    "williamboman/mason.nvim",
+	    "williamboman/mason-lspconfig.nvim",
+	    "neovim/nvim-lspconfig",
+	}
+	-- Alpha
+	use {
+	    'goolord/alpha-nvim',
+	    config = function ()
+		require'alpha'.setup(require'alpha.themes.dashboard'.config)
+	    end
 	}
 end)

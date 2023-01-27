@@ -9,3 +9,5 @@ end
 
 -- Set KeyMap
 map("n","<C-s>","<CMD>w<CR>")
+map("n","<C-n>","<CMD>NvimTreeToggle<CR>")
+map("n","<C-S-n>","<CMD>NvimTreeFindFileToggle<CR>")
